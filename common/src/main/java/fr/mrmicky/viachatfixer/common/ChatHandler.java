@@ -94,7 +94,7 @@ public class ChatHandler {
     }
 
     private ChatTracker getChatTracker(UUID uuid) {
-        UserConnection connection = Via.getManager().getConnection(uuid);
+        UserConnection connection = Via.getPlatform().getConnectionManager().getConnectedClient(uuid);
 
         if (connection == null) {
             if (this.unknownPlayers.add(uuid)) {
